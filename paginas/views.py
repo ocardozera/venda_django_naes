@@ -1,5 +1,8 @@
+#Importar o TemplateView para criar páginas simples
 from django.views.generic import TemplateView
 
-# Create your views here.
+# A classe IndexView "extends" TemplateView
 class IndexView(TemplateView):
-    template_name = "index.html"
+    # Toda classe filha do TemplateView precisa
+    # do atributo abaixo para definir um template à ser renderizado
+    template_name = "paginas/modelo.html"

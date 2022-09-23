@@ -10,7 +10,7 @@
     <meta name="author" content="Rafael H. D. Zottesso">
 
     {% block titulo %}
-    <title>:: SisProg ::</title>
+    <title>:: SisPDV ::</title>
     {% endblock %}
 
     <!-- Ícone do favicon -->
@@ -82,12 +82,12 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-                                <a class="dropdown-item" href="{% url 'cadastros-estado' %}">Estados</a>
-                                <a class="dropdown-item" href="{% url 'cadastros-cidade' %}">Cidades</a>
-                                <a class="dropdown-item" href="{% url 'cadastros-categoria' %}">Categoria</a>
-                                <a class="dropdown-item" href="{% url 'cadastros-estabelecimento' %}">Estabelecimento</a>
-                                <a class="dropdown-item" href="{% url 'cadastros-produtos' %}">Produto</a>
-                                <a class="dropdown-item" href="{% url 'cadastros-venda' %}">Vendas</a>
+                                <a class="dropdown-item" href="{% url 'listar-estado' %}">Estados</a>
+                                <a class="dropdown-item" href="{% url 'listar-cidade' %}">Cidades</a>
+                                <a class="dropdown-item" href="{% url 'listar-categoria' %}">Categoria</a>
+                                <a class="dropdown-item" href="{% url 'listar-estabelecimento' %}">Estabelecimento</a>
+                                <a class="dropdown-item" href="{% url 'listar-produto' %}">Produto</a>
+                                <a class="dropdown-item" href="{% url 'listar-venda' %}">Vendas</a>
 
                             </div>
                         </li>
@@ -166,36 +166,7 @@
 
         <!-- Bloco acima do rodapé com links -->
         {% block rodape-links %}
-        <div class="container-fluid bg-ifpr text-white p-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm">
-                        <h5>O Município</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-white">Link 1</a></li>
-                            <li><a href="#" class="text-white">Link 2</a></li>
-                            <li><a href="#" class="text-white">Link 3</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm">
-                        <h5>Serviços</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-white">Link 1</a></li>
-                            <li><a href="#" class="text-white">Link 2</a></li>
-                            <li><a href="#" class="text-white">Link 3</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm">
-                        <h5>Acesso rápido</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-white">Link 1</a></li>
-                            <li><a href="#" class="text-white">Link 2</a></li>
-                            <li><a href="#" class="text-white">Link 3</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         {% endblock %}
 
 
@@ -207,7 +178,7 @@
                     <img src="{% static 'img/ifpr.png' %}" height="48" class="float-left" alt="">
                     <p>
                         <span class="lead">Instituto Federal do Paraná</span><br>
-                        <span>Desenvolvido por Rafael H. D. Zottesso</span>
+                        <span>Desenvolvido por Matheus J. Cardoso</span>
                     </p>
                 </div>
                 <!-- <div class="col-md text-left">

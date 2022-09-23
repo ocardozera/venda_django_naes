@@ -15,6 +15,7 @@
             <th>Produto</th>
             <th>Valor</th>
             <th>Estabelecimento</th>
+            <th>Vendedor</th>
             <th>Opções</th>
         </tr>
 
@@ -23,6 +24,7 @@
             <td>{{ venda.produto.nome }}</td>
             <td>R$ {{ venda.valor_final }}</td>
             <td>{{ venda.estabelecimento.nome }}</td>
+            <th>{{ venda.usuario}}</th>
             <td>
                 <a href="{% url 'editar-venda' venda.pk %}" class="btn btn-warning btn-sm">
                     <i class="fa fa-pencil" aria-hidden="true"></i>

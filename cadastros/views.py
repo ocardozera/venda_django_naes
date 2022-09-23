@@ -184,6 +184,17 @@ class VendaCreate(LoginRequiredMixin, CreateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-venda')
 
+    def form_valid(self, form):
+        
+        # Antes do super não foi criado o obj
+
+        form.instance.usuario = self.request.user
+
+        url = super().form_valid(form)
+
+        # Depois do super o obj está criado
+         
+        return url
 
 class VendaUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
@@ -206,6 +217,10 @@ class VendaList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     model = Venda
     template_name = 'cadastros/listas/venda.html'
+
+    def get_queryset(self):
+        self.object_list = Venda.objects.filter(usuario=self.request.user)
+        return self.object_list
 
 ################### UPDATE ###################
 

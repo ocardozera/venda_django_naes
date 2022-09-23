@@ -1,5 +1,6 @@
 from unicodedata import decimal
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Estado(models.Model):
@@ -56,6 +57,9 @@ class Venda(models.Model):
 
     estabelecimento = models.ForeignKey(Estabelecimento, on_delete=models.PROTECT) 
 
+    usuario = models.ForeignKey(User, on_delete=models.PROTECT)
+
+     
     def __str__(self):
         return "Valor Total: R$ {} - Valor Final: R$ {} - {}".format(self.valor_total, self.valor_final, self.estabelecimento.nome)
 

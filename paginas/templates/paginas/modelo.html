@@ -124,7 +124,7 @@
                                     <i class="fa fa-lock" aria-hidden="true"></i>
                                     Alterar senha</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" >
+                                <a class="dropdown-item" href="{% url 'logout' %}">
                                     <i class="fa fa-sign-out" aria-hidden="true"></i>
                                     Sair</a>
                             </div>
@@ -136,8 +136,8 @@
                                 Registrar
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" >
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">
                                 <i class="fa fa-sign-in" aria-hidden="true"></i>
                                 Login
                             </a>

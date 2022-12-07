@@ -10,44 +10,72 @@
 <hr>
 
 <div class="table-responsive">
-    <table class="table table-striped">
-        <tr>
-            <th>Nome</th>
-            <th>Logradouro</th>
-            <th>Numero</th>
-            <th>Bairro</th>
-            <th>CNPJ</th>
-            <th>CPF</th>
-            <th>Opções</th>
-        </tr>
+    <table class="table table-striped" id="tabela-listar">
 
-        {% for estabelecimento in object_list %}
-        <tr>
-            <td>{{ estabelecimento.nome }}</td>
-            <td>{{ estabelecimento.logradouro }}</td>
-            <td>{{ estabelecimento.numero }}</td>
-            <td>{{ estabelecimento.bairro }}</td>
-            <td>{{ estabelecimento.cnpj }}</td>
-            <td>{{ estabelecimento.cpf }}</td>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Logradouro</th>
+                <th>Numero</th>
+                <th>Bairro</th>
+                <th>CNPJ</th>
+                <th>CPF</th>
+                <th>Opções</th>
+            </tr>
 
-            <td>
-                <a href="{% url 'editar-estabelecimento' estabelecimento.pk %}" class="btn btn-warning btn-sm">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                </a>
-                <a href="{% url 'excluir-estabelecimento' estabelecimento.pk %}" class="btn btn-danger btn-sm">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                </a>
-            </td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="3">Nenhum estabelecimento cadastrado.</td>
-        </tr>
+        </thead>
+  
+        <tbody>
 
-        {% endfor %}
+            {% for estabelecimento in object_list %}
+            <tr>
+                <td>{{ estabelecimento.nome }}</td>
+                <td>{{ estabelecimento.logradouro }}</td>
+                <td>{{ estabelecimento.numero }}</td>
+                <td>{{ estabelecimento.bairro }}</td>
+                <td>{{ estabelecimento.cnpj }}</td>
+                <td>{{ estabelecimento.cpf }}</td>
+            
+                <td>
+                    <a href="{% url 'editar-estabelecimento' estabelecimento.pk %}" class="btn btn-warning btn-sm">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'excluir-estabelecimento' estabelecimento.pk %}" class="btn btn-danger btn-sm">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">Nenhum estabelecimento cadastrado.</td>
+            </tr>
+            
+            {% endfor %}
+
+        </tbody>
+
+        
 
     </table>
 </div>
 
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script>
+
+    $(document).ready(function () {
+
+        //$("#tabela-listar").DataTable();
+
+        $('#tabela-listar').DataTable();
+
+
+    });
+
+</script>
 
 {% endblock %}

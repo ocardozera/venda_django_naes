@@ -10,35 +10,63 @@
 <hr>
 
 <div class="table-responsive">
-    <table class="table table-striped">
-        <tr>
-            <th>Nome</th>
-            <th>Estado</th>
-            <th>Opções</th>
-        </tr>
+    <table class="table table-striped" id="tabela-listar">
 
-        {% for cidade in object_list %}
-        <tr>
-            <td>{{ cidade.nome }}</td>
-            <td>{{ cidade.estado }}</td>
-            <td>
-                <a href="{% url 'editar-cidade' cidade.pk %}" class="btn btn-warning btn-sm">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                </a>
-                <a href="{% url 'excluir-cidade' cidade.pk %}" class="btn btn-danger btn-sm">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                </a>
-            </td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="3">Nenhuma cidade cadastrada.</td>
-        </tr>
+        <thead>
 
-        {% endfor %}
+            <tr>
+                <th>Nome</th>
+                <th>Estado</th>
+                <th>Opções</th>
+            </tr>
+
+
+        </thead>
+
+        <tbody>
+
+                {% for cidade in object_list %}
+                <tr>
+                    <td>{{ cidade.nome }}</td>
+                    <td>{{ cidade.estado }}</td>
+                    <td>
+                        <a href="{% url 'editar-cidade' cidade.pk %}" class="btn btn-warning btn-sm">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                        <a href="{% url 'excluir-cidade' cidade.pk %}" class="btn btn-danger btn-sm">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3">Nenhuma cidade cadastrada.</td>
+                </tr>
+                
+                {% endfor %}
+            
+        </tbody>
+ 
 
     </table>
 </div>
 
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+
+    $(document).ready(function () {
+
+        //$("#tabela-listar").DataTable();
+
+        $('#tabela-listar').DataTable();
+
+
+    });
+
+</script>
 
 {% endblock %}

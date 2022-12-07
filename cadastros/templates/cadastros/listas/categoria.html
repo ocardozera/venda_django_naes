@@ -10,33 +10,58 @@
 <hr>
 
 <div class="table-responsive">
-    <table class="table table-striped">
-        <tr>
-            <th>Nome</th>
-            <th>Opções</th>
-        </tr>
+    <table class="table table-striped" id="tabela-listar">
 
-        {% for categoria in object_list %}
-        <tr>
-            <td>{{ categoria.nome }}</td>
-            <td>
-                <a href="{% url 'editar-categoria' categoria.pk %}" class="btn btn-warning btn-sm">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                </a>
-                <a href="{% url 'excluir-categoria' categoria.pk %}" class="btn btn-danger btn-sm">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                </a>
-            </td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="3">Nenhuma categoria cadastrada.</td>
-        </tr>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
 
-        {% endfor %}
+        <tbody>
+            {% for categoria in object_list %}
+            <tr>
+                <td>{{ categoria.nome }}</td>
+                <td>
+                    <a href="{% url 'editar-categoria' categoria.pk %}" class="btn btn-warning btn-sm">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'excluir-categoria' categoria.pk %}" class="btn btn-danger btn-sm">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">Nenhuma categoria cadastrada.</td>
+            </tr>
+            
+            {% endfor %}
+        </tbody>
+
+       
+       
 
     </table>
 </div>
 
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+
+    $(document).ready(function(){
+
+        //$("#tabela-listar").DataTable();
+
+       $('#tabela-listar').DataTable();
+    
+        
+    });
+
+</script>
 
 {% endblock %}

@@ -10,39 +10,64 @@
 <hr>
 
 <div class="table-responsive">
-    <table class="table table-striped">
-        <tr>
-            <th>Produto</th>
-            <th>Valor</th>
-            <th>Estabelecimento</th>
-            <th>Vendedor</th>
-            <th>Opções</th>
-        </tr>
+    <table class="table table-striped" id="tabela-listar">
 
-        {% for venda in object_list %}
-        <tr>
-            <td>{{ venda.produto.nome }}</td>
-            <td>R$ {{ venda.valor_final }}</td>
-            <td>{{ venda.estabelecimento.nome }}</td>
-            <th>{{ venda.usuario}}</th>
-            <td>
-                <a href="{% url 'editar-venda' venda.pk %}" class="btn btn-warning btn-sm">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                </a>
-                <a href="{% url 'excluir-venda' venda.pk %}" class="btn btn-danger btn-sm">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                </a>
-            </td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="3">Nenhum produto cadastrado.</td>
-        </tr>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Valor</th>
+                <th>Estabelecimento</th>
+                <th>Vendedor</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
 
-        {% endfor %}
+        <tbody>
+            {% for venda in object_list %}
+            <tr>
+                <td>{{ venda.produto.nome }}</td>
+                <td>R$ {{ venda.valor_final }}</td>
+                <td>{{ venda.estabelecimento.nome }}</td>
+                <th>{{ venda.usuario}}</th>
+                <td>
+                    <a href="{% url 'editar-venda' venda.pk %}" class="btn btn-warning btn-sm">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'excluir-venda' venda.pk %}" class="btn btn-danger btn-sm">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">Nenhum produto cadastrado.</td>
+            </tr>
+            
+            {% endfor %}
+
+        </tbody>
+
+        
 
     </table>
 </div>
 
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+
+    $(document).ready(function () {
+
+        //$("#tabela-listar").DataTable();
+
+        $('#tabela-listar').DataTable();
+
+
+    });
+
+</script>
 
 {% endblock %}

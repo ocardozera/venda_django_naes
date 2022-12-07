@@ -41,6 +41,7 @@ class Estabelecimento(models.Model):
     bairro = models.CharField(max_length=200)
     cnpj = models.CharField(max_length=14)
     cpf = models.CharField(max_length=11)
+    cep = models.CharField(max_length=10, null=True)
 
     cidade = models.ForeignKey(Cidade, on_delete=models.PROTECT)
 
